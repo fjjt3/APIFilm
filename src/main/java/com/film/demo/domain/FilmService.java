@@ -15,7 +15,7 @@ public class FilmService {
     }
 
     public Mono<Film> getFilmInfo(String filmId) {
-        String apiUrl = "https://api.filmaffinity.com/v1/films/" + filmId;
+        String apiUrl = " https://api-filmaffinity.herokuapp.com/api/pelicula/" + filmId;
 
         return webClient.get()
                 .uri(apiUrl)

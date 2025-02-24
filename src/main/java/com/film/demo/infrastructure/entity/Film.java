@@ -1,18 +1,14 @@
 package com.film.demo.infrastructure.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 import lombok.Data;
 
-
-@Entity
 @Data
+@Table("films") // Especifica el nombre de la tabla en la base de datos
 public class Film {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id // Usa la anotación @Id de Spring Data
+    private Long id; // No necesitas @GeneratedValue, R2DBC maneja la generación automática
     private String name;
     private int year;
     private String director;
