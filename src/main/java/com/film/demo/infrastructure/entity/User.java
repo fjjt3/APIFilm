@@ -5,10 +5,11 @@ import org.springframework.data.relational.core.mapping.Table;
 import lombok.Data;
 
 @Data
-@Table("users") // Cambia el nombre de la tabla a "users"
+@Table("users")
 public class User {
     @Id
-    private Long id; // userId de la API
+    private Long id; // id del post (de la API)
+    private Long userId; // userId de la API
     private String title; // title de la API
     private String body; // body de la API
 }

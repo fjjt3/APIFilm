@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api/users") // Cambia la ruta a "/api/users"
+@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;
@@ -25,22 +25,4 @@ public class UserController {
         return userService.getUserInfo(userId)
                 .flatMap(user -> userRepository.save(user)); // Guarda el usuario en la base de datos
     }
-
-    // Otros métodos del controlador (opcional)
-    /*
-    @GetMapping
-    public Flux<User> getAllUsers() {
-        return userRepository.findAll();
-    }
-
-    @PostMapping
-    public Mono<User> createUser(@RequestBody User user) {
-        return userRepository.save(user);
-    }
-
-    @DeleteMapping("/{userId}")
-    public Mono<Void> deleteUser(@PathVariable Long userId) {
-        return userRepository.deleteById(userId);
-    }
-    */
 }
